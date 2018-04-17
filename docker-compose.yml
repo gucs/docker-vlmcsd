@@ -1,0 +1,8 @@
+version: '3'
+services:
+  vlmcsd:
+    image: gucs/vlmcsd
+    ports:
+      - '1688:1688'
+    expose:
+      - '1688'
