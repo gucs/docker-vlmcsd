@@ -7,6 +7,52 @@
 ## Info / About this docker
 Docker based in Alpine OS with vlmcsd compiled from "source" (Wind4 GitHub)
 
+## Usage:
+
+server side:
+
+* run `docker build -t gucs/vlmcsd .` to build image
+* run `docker-compose up` to start container
+
+windows client side:
+
+* run `skmgr.vbs -skms 10.0.0.7` to set kms server
+* run `skmgr.vbs -ato` to activate
+
+docker compose logs of my computer
+
+```
+Creating network "dockervlmcsd_default" with the default driver
+Creating dockervlmcsd_vlmcsd_1 ... done
+Attaching to dockervlmcsd_vlmcsd_1
+vlmcsd_1  | 2018-04-17 08:30:47: Listening on [::]:1688
+vlmcsd_1  | 2018-04-17 08:30:47: Listening on 0.0.0.0:1688
+vlmcsd_1  | 2018-04-17 08:30:47: vlmcsd private build started successfully
+vlmcsd_1  | 2018-04-17 08:31:43: IPv4 connection accepted: 172.23.0.1:38940.
+vlmcsd_1  | 2018-04-17 08:31:43: <<< Incoming KMS request
+vlmcsd_1  | 2018-04-17 08:31:43: Protocol version                : 4.0
+vlmcsd_1  | 2018-04-17 08:31:43: Client is a virtual machine     : No
+vlmcsd_1  | 2018-04-17 08:31:43: Licensing status                : 2 (OOB grace)
+vlmcsd_1  | 2018-04-17 08:31:43: Remaining time (0 = forever)    : 43200 minutes
+vlmcsd_1  | 2018-04-17 08:31:43: Application ID                  : 55c92734-d682-4d71-983e-d6ec3f16059f (Unknown)
+vlmcsd_1  | 2018-04-17 08:31:43: SKU ID (aka Activation ID)      : 620e2b3d-09e7-42fd-802a-17a13652fe7a (Unknown)
+vlmcsd_1  | 2018-04-17 08:31:43: KMS ID (aka KMS counted ID)     : ca87f5b6-cd46-40c0-b06d-8ecd57a4373f (Unknown)
+vlmcsd_1  | 2018-04-17 08:31:43: Client machine ID               : c0ece1f0-ea45-4568-a519-a680cd960f29
+vlmcsd_1  | 2018-04-17 08:31:43: Previous client machine ID      : 129fa978-efe4-4c67-8401-3f46d95a0d26
+vlmcsd_1  | 2018-04-17 08:31:43: Client request timestamp (UTC)  : 2018-04-17 08:31:44
+vlmcsd_1  | 2018-04-17 08:31:43: Workstation name                : win2k8r2
+vlmcsd_1  | 2018-04-17 08:31:43: N count policy (minimum clients): 5
+vlmcsd_1  | 2018-04-17 08:31:43: >>> Sending response, ePID source = randomized at program start
+vlmcsd_1  | 2018-04-17 08:31:43: Protocol version                : 4.0
+vlmcsd_1  | 2018-04-17 08:31:43: KMS host extended PID           : 03612-00206-479-326298-03-1058-14393.0000-0072017
+vlmcsd_1  | 2018-04-17 08:31:43: Client machine ID               : c0ece1f0-ea45-4568-a519-a680cd960f29
+vlmcsd_1  | 2018-04-17 08:31:43: Client request timestamp (UTC)  : 2018-04-17 08:31:44
+vlmcsd_1  | 2018-04-17 08:31:43: KMS host current active clients : 50
+vlmcsd_1  | 2018-04-17 08:31:43: Renewal interval policy         : 10080
+vlmcsd_1  | 2018-04-17 08:31:43: Activation interval policy      : 120
+vlmcsd_1  | 2018-04-17 08:31:43: IPv4 connection closed: 172.23.0.1:38940.
+```
+
 ## Server Usage:
 > $ docker run -d -p 1688:1688 --restart=always --name vlmcsd mikolatero/vlmcsd
 
