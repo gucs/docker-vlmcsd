@@ -3,6 +3,7 @@ services:
   vlmcsd:
     image: gucs/vlmcsd
     container_name: 'vlmcsd'
+    restart: always
     ports:
       - '1688:1688'
     expose:
